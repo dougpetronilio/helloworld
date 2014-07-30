@@ -42,8 +42,9 @@ grails.project.dependency.resolution = {
         mavenCentral()
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
         //mavenRepo "http://repository.codehaus.org"
-        //mavenRepo "http://download.java.net/maven/2/"
+        mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
+        mavenRepo "http://repo.spring.io/milestone/"
     }
 
     dependencies {
@@ -51,7 +52,7 @@ grails.project.dependency.resolution = {
         // runtime 'mysql:mysql-connector-java:5.1.29'
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0-grails-2.4"
-        runtime group:'org.xerial', name:'sqlite-jdbc', version:'3.6.16'
+        runtime "postgresql:postgresql:9.1-901.jdbc4"
     }
 
     plugins {
@@ -62,6 +63,12 @@ grails.project.dependency.resolution = {
         compile ":scaffolding:2.1.2"
         compile ':cache:1.1.7'
         compile ":asset-pipeline:1.8.11"
+
+        compile ":webxml:1.4.1"
+        compile ":database-session:1.1.2"
+
+        compile ':heroku:1.0.1'
+        compile ':cloud-support:1.0.8'
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.5.4" // or ":hibernate:3.6.10.16"
