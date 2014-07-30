@@ -30,7 +30,10 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+
+            uri = new URI(System.env.DATABASE_URL ?: "postgres://dougpetronilio@gmail.com:counter567@5432/grailsDB")
+            url = "jdbc:postgresql://" + uri.host + uri.path
+
             pooled = true
             driverClassName = "org.postgresql.Driver"
             dialect = "org.hibernate.dialect.PostgreSQLDialect"
