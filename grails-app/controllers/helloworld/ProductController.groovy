@@ -1,5 +1,5 @@
 package helloworld
 
 class ProductController {
-    def scaffold = Product
+    def scaffold = true
 }
